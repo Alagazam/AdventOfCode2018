@@ -41,15 +41,16 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\day01\test01.cpp" />
     <ClCompile Include="AdventOfCode2018Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventOfCode2018\AdventOfCode2018.vcxproj">
-      <Project>{7a6bb717-0929-4daa-b709-c2dcd450ba6b}</Project>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <CopyFileToFolders Include="test.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
