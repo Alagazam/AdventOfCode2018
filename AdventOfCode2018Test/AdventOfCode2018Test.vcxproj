@@ -43,6 +43,7 @@
   <ItemGroup>
     <ClCompile Include="..\day01\test01.cpp" />
     <ClCompile Include="..\day02\test02.cpp" />
+    <ClCompile Include="..\day03\test03.cpp" />
     <ClCompile Include="AdventOfCode2018Test.cpp" />
   </ItemGroup>
   <ItemGroup>

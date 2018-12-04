@@ -8,13 +8,19 @@
     <ClInclude Include="..\common\inputReader.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="..\day02\day02.h" />
+    <ClInclude Include="..\day03\day03.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\day01\day01.txt" />
+    <CopyFileToFolders Include="..\day02\day02.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="common">
       <UniqueIdentifier>{7d7860cd-0ed7-437a-a3c4-361af3647cf6}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\day03\day03.txt" />
   </ItemGroup>
 </Project>
