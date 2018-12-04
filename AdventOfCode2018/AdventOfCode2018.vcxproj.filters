@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AdventOfCode2018.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\day01\day01.h" />
+    <ClInclude Include="..\common\inputReader.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\day01\day01.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{7d7860cd-0ed7-437a-a3c4-361af3647cf6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
