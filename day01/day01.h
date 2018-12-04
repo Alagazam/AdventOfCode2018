@@ -32,9 +32,13 @@ int FirstRepeat(aoc2018::inputContent input)
 		{
 			sum += stoi(row[0]);
 			if (seen.find(sum) != seen.end())
+			{
+				std::cout << '\n';
 				return sum;
+			}
 			seen.insert(sum);
 		}
+		std::cout << '.';
 	}
 	return 0;
 }
