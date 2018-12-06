@@ -25,17 +25,19 @@ namespace aoc2018
 		return in;
 	}
 
-	inline std::vector<std::string> Tokenize(std::string line)
+	using rowContent = std::vector<std::string>;
+
+	inline rowContent Tokenize(std::string line)
 	{
 		std::istringstream iss(line);
-		std::vector<std::string> tokens;
+		rowContent tokens;
 		copy(std::istream_iterator<std::string>(iss),
 			std::istream_iterator<std::string>(),
 			back_inserter(tokens));
 		return tokens;
 	}
 
-	using inputContent = std::vector<std::vector<std::string>>;
+	using inputContent = std::vector<rowContent>;
 
 	inline inputContent ReadInput(std::istream& s)
 	{

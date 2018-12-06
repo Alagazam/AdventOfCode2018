@@ -10,6 +10,7 @@
     </ClInclude>
     <ClInclude Include="..\day02\day02.h" />
     <ClInclude Include="..\day03\day03.h" />
+    <ClInclude Include="..\day04\day04.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\day01\day01.txt" />
@@ -22,5 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\day03\day03.txt" />
+    <Text Include="..\day04\day04.txt" />
   </ItemGroup>
 </Project>

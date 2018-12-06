@@ -2,6 +2,8 @@
 #include "../day01/day01.h"
 #include "../day02/day02.h"
 #include "../day03/day03.h"
+#include "../day04/day04.h"
+
 int main(int argc, char *argv[])
 {
 	try {
@@ -11,6 +13,7 @@ int main(int argc, char *argv[])
 		if (day == 0 || day == 1)	std::cout << "Day 01 A=" << aoc2018_01::Solve_A() << " B=" << aoc2018_01::Solve_B() << "\n";
 		if (day == 0 || day == 2)	std::cout << "Day 02 A=" << aoc2018_02::Solve_A() << " B=" << aoc2018_02::Solve_B() << "\n";
 		if (day == 0 || day == 3)	std::cout << "Day 03 " << aoc2018_03::Solve_AB() << "\n";
+		if (day == 0 || day == 4)	std::cout << "Day 04 A=" << aoc2018_04::Solve_A() << " B=" << aoc2018_04::Solve_B() << "\n";
 	}
 	catch (std::runtime_error e)
 	{
