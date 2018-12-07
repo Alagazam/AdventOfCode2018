@@ -24,13 +24,17 @@ struct Guard
 	std::array<int, 60> sleepMinutes{ 0 };
 };
 
-int getBestGuard(aoc2018::inputContent input)
+std::pair<int,int> getBestGuard(aoc2018::inputContent input)
 {
 	sortRows(input);
 	std::map<int,Guard> guards;
 	Guard	guard;
 	int beginSleep{ 0 };
 	int endSleep{ 0 };
+	int maxSleepGuard2{ 0 };
+	int maxSleepMinute2{ 0 };
+	int maxSleep{ 0 };
+
 	for (auto row : input)
 	{
 		if (row[2] == "Guard")
@@ -47,9 +51,16 @@ int getBestGuard(aoc2018::inputContent input)
 		{
 			endSleep = std::stoi(row[1].substr(3, 2));
 			guard.totalMinutes += endSleep - beginSleep;
+
 			for (auto i = beginSleep; i != endSleep; ++i)
 			{
 				guard.sleepMinutes[i]++;
+				if (guard.sleepMinutes[i] > maxSleep)
+				{
+					maxSleep = guard.sleepMinutes[i];
+					maxSleepMinute2 = i;
+					maxSleepGuard2 = guard.number;
+				}
 			}
 			guards[guard.number] = guard;
 		}
@@ -61,22 +72,21 @@ int getBestGuard(aoc2018::inputContent input)
 	)->second };
 
 	auto mostSleepMinute{ max_element(mostSleep.sleepMinutes.begin(), mostSleep.sleepMinutes.end())- mostSleep.sleepMinutes.begin() };
+	auto best1 = mostSleep.number * static_cast<int>(mostSleepMinute);
 
-	return mostSleep.number * static_cast<int>(mostSleepMinute);
+	auto best2 = maxSleepMinute2 * maxSleepGuard2;
+	return std::make_pair(best1, best2);
 }
 
-int Solve_A()
+std::string Solve_AB()
 {
+	using namespace std::string_literals;
+
 	auto	file = aoc2018::OpenInputFile("day04.txt");
 	auto	input = aoc2018::ReadInput(*file);
-	return getBestGuard(input);
+	auto	res = getBestGuard(input);
+	return  "A="s + std::to_string(res.first) + " B=" + std::to_string(res.second);
 }
 
-int Solve_B()
-{
-	auto	file = aoc2018::OpenInputFile("day04.txt");
-	auto	input = aoc2018::ReadInput(*file);
-	return getBestGuard(input);
-}
 
 }

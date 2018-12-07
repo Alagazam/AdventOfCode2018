@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 		if (day == 0 || day == 1)	std::cout << "Day 01 A=" << aoc2018_01::Solve_A() << " B=" << aoc2018_01::Solve_B() << "\n";
 		if (day == 0 || day == 2)	std::cout << "Day 02 A=" << aoc2018_02::Solve_A() << " B=" << aoc2018_02::Solve_B() << "\n";
 		if (day == 0 || day == 3)	std::cout << "Day 03 " << aoc2018_03::Solve_AB() << "\n";
-		if (day == 0 || day == 4)	std::cout << "Day 04 A=" << aoc2018_04::Solve_A() << " B=" << aoc2018_04::Solve_B() << "\n";
+		if (day == 0 || day == 4)	std::cout << "Day 04 " << aoc2018_04::Solve_AB() << "\n";
 	}
 	catch (std::runtime_error e)
 	{
