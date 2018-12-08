@@ -12,19 +12,19 @@
     <ClInclude Include="..\day03\day03.h" />
     <ClInclude Include="..\day04\day04.h" />
     <ClInclude Include="..\day05\day05.h" />
+    <ClInclude Include="..\day06\day06.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\day01\day01.txt" />
     <CopyFileToFolders Include="..\day02\day02.txt" />
     <CopyFileToFolders Include="..\day03\day03.txt" />
     <CopyFileToFolders Include="..\day04\day04.txt" />
+    <CopyFileToFolders Include="..\day05\day05.txt" />
+    <CopyFileToFolders Include="..\day06\day06.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="common">
       <UniqueIdentifier>{7d7860cd-0ed7-437a-a3c4-361af3647cf6}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\day05\day05.txt" />
   </ItemGroup>
 </Project>
