@@ -9,6 +9,11 @@ struct	plot {
 	int dist{ 0 };
 };
 using grid_t = std::vector<std::vector<plot>>;
+struct coord{
+	int x{ 0 };
+	int y{ 0 };
+};
+using coords_t = std::vector<coord>;
 
 void outputGridPart(int size, const grid_t &grid)
 {
@@ -100,6 +105,36 @@ int	largestArea(const aoc2018::inputContent&	input)
 	return *std::max_element(areaCount.begin(), areaCount.end());
 }
 
+int sizeOfSafeDistance(const aoc2018::inputContent&	input, int safeDist, int gridSize)
+{
+	coords_t	coords;
+	for (auto row : input)
+	{
+		auto x0 = stoi(row[0]);
+		auto y0 = stoi(row[1]);
+		coords.push_back({ x0,y0 });
+	}
+	int safeArea{ 0 };
+	for (int x = 0; x != gridSize; ++x)
+	{
+		for (int y = 0; y != gridSize; ++y)
+		{
+			int totDist{ 0 };
+			for (auto row : coords)
+			{
+				totDist += abs(x - row.x) + abs(y - row.y);
+			}
+			if (totDist <= safeDist)
+			{
+				++safeArea;
+			}
+		}
+		std::cout << '.';
+	}
+	std::cout << '\n';
+	return safeArea;
+}
+
 int Solve_A()
 {
 	auto	file = aoc2018::OpenInputFile("day06.txt");
@@ -111,7 +146,7 @@ int Solve_B()
 {
 	auto	file = aoc2018::OpenInputFile("day06.txt");
 	auto	input = aoc2018::ReadInput(*file);
-	return  0;
+	return  sizeOfSafeDistance(input, 10000, 400);
 }
 
 

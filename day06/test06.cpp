@@ -76,3 +76,17 @@ TEST(Day06, Day06_A_1) {
 	auto	input = aoc2018::ReadInput(ss);
 	EXPECT_EQ(17, aoc2018_06::largestArea(input));
 }
+
+
+TEST(Day06, Day06_B_1) {
+	std::istringstream ss(
+		"1, 1\n"
+		"1, 6\n"
+		"8, 3\n"
+		"3, 4\n"
+		"5, 5\n"
+		"8, 9\n"
+	);
+	auto	input = aoc2018::ReadInput(ss);
+	EXPECT_EQ(16, aoc2018_06::sizeOfSafeDistance(input, 30, 10));
+}
