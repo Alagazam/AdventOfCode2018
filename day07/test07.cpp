@@ -29,5 +29,5 @@ TEST(Day07, Day07_B_1) {
 		"Step F must be finished before step E can begin.\n"
 	);
 	auto	input = aoc2018::ReadInput(ss);
-	EXPECT_EQ("", aoc2018_07::buildOrder(input));
+	EXPECT_EQ(15, aoc2018_07::build(input, 2, 0));
 }
