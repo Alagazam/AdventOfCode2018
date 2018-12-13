@@ -17,5 +17,5 @@ TEST(Day08, Day08_B_1) {
 		"2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2"
 	);
 	auto	input = aoc2018::ReadInput(ss);
-	EXPECT_EQ(138, aoc2018_08::getMetadataSum(input));
+	EXPECT_EQ(66, aoc2018_08::getMetadataValue(input));
 }
