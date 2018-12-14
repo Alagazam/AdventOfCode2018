@@ -50,4 +50,17 @@ namespace aoc2018
 		}
 		return lines;
 	}
+
+	using inputLines = std::vector<std::string>;
+
+	inline inputLines ReadInputLines(std::istream& s)
+	{
+		std::string	line;
+		inputLines	lines;
+		while (std::getline(s, line))
+		{
+			lines.push_back(line);
+		}
+		return lines;
+	}
 }

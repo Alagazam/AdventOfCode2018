@@ -8,6 +8,7 @@
 #include "../day07/day07.h"
 #include "../day08/day08.h"
 #include "../day09/day09.h"
+#include "../day10/day10.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +25,7 @@ int main(int argc, char *argv[])
 		if (day == 0 || day == 7)	std::cout << "Day 07 A=" << aoc2018_07::Solve_A() << " B=" << aoc2018_07::Solve_B() << "\n";
 		if (day == 0 || day == 8)	std::cout << "Day 08 A=" << aoc2018_08::Solve_A() << " B=" << aoc2018_08::Solve_B() << "\n";
 		if (day == 0 || day == 9)	std::cout << "Day 09 A=" << aoc2018_09::Solve_A() << " B=" << aoc2018_09::Solve_B() << "\n";
+		if (day == 0 || day == 10)	std::cout << "Day 10 AB=" << aoc2018_10::Solve_AB() << "\n";
 	}
 	catch (std::runtime_error e)
 	{
