@@ -49,6 +49,7 @@
     <ClCompile Include="..\day06\test06.cpp" />
     <ClCompile Include="..\day07\test07.cpp" />
     <ClCompile Include="..\day08\test08.cpp" />
+    <ClCompile Include="..\day09\test09.cpp" />
     <ClCompile Include="AdventOfCode2018Test.cpp" />
   </ItemGroup>
   <ItemGroup>
