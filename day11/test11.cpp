@@ -13,8 +13,19 @@ TEST(Day11, power) {
 	EXPECT_EQ(4, aoc2018_11::power(71, 101, 153));
 }
 TEST(Day11, Day11_A_1) {
-	EXPECT_EQ(std::make_pair(33, 45), aoc2018_11::bestSubGrid(18));
+	aoc2018_11::subGrid pos{ 33,45,3,29 };
+	EXPECT_EQ(pos, aoc2018_11::bestSubGrid(18));
 }
 TEST(Day11, Day11_A_2) {
-	EXPECT_EQ(std::make_pair(21, 61), aoc2018_11::bestSubGrid(42));
+	aoc2018_11::subGrid pos{ 21,61,3,30 };
+	EXPECT_EQ(pos, aoc2018_11::bestSubGrid(42));
+}
+
+TEST(Day11, Day11_B_1) {
+	aoc2018_11::subGrid pos{ 90,269,16,113 };
+	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(18));
+}
+TEST(Day11, Day11_B_2) {
+	aoc2018_11::subGrid pos{ 232,251,12,119 };
+	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(42));
 }
