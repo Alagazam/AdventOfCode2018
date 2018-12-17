@@ -80,13 +80,13 @@ subGrid	bestSubGrid(const int serial, const int size = 3)
 	return bestSubGrid(size, grid);
 }
 
-subGrid	bestSubGridAnySize(const int serial)
+subGrid	bestSubGridAnySize(const int serial, int maxSize=gridSize)
 {
 	grid_t	grid;
 	initGrid(grid, serial);
 
 	subGrid maxPowSubGrid;
-	for (int size = 1; size != gridSize; ++size)
+	for (int size = 1; size != maxSize; ++size)
 	{
 		auto best = bestSubGrid(size, grid);
 		if (maxPowSubGrid.pow < best.pow)
@@ -111,7 +111,7 @@ std::string Solve_B()
 	auto	file = aoc2018::OpenInputFile("day11.txt");
 	auto	input = aoc2018::ReadInputLines(*file);
 	auto	serial = std::stoi(input[0]);
-	auto	coord = bestSubGrid(serial);
+	auto	coord = bestSubGridAnySize(serial);
 	std::string s = std::to_string(coord.x) + "," + std::to_string(coord.y) + "," + std::to_string(coord.size);
 	return  s;
 }

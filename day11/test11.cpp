@@ -23,9 +23,9 @@ TEST(Day11, Day11_A_2) {
 
 TEST(Day11, Day11_B_1) {
 	aoc2018_11::subGrid pos{ 90,269,16,113 };
-	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(18));
+	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(18, 20));
 }
 TEST(Day11, Day11_B_2) {
 	aoc2018_11::subGrid pos{ 232,251,12,119 };
-	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(42));
+	EXPECT_EQ(pos, aoc2018_11::bestSubGridAnySize(42, 20));
 }
