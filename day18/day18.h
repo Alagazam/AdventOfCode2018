@@ -69,9 +69,57 @@ int	developAndCountResources(const aoc2018::inputLines &input, int minutes)
 	for (int i = 0; i != minutes; ++i)
 	{
 		acres = develop(acres);
-		if (i % 10000000 == 0) std::cout << i << '\n';
 	}
 	return calcResourceValue(acres);
+}
+
+int	developAndCountResourcesFindingLoops(const aoc2018::inputLines &input, int minutes)
+{
+	auto	acres = input;
+	std::vector<int>		results;
+	ptrdiff_t loopStartIndex{ 0 };
+	ptrdiff_t loopLength{ 0 };
+
+	for (int i = 0; i != minutes; ++i)
+	{
+		acres = develop(acres);
+		auto result = calcResourceValue(acres);
+
+		// Do we had the same result before
+		auto start1 = std::find(results.begin(), results.end(), result);
+		if (start1 != results.end())
+		{
+			// if so: do we have a second finding ?
+			auto start2 = std::find(start1 + 1, results.end(), result);
+			if (start2 != results.end())
+			{
+				// do we have another full repetition to compare?
+				if (start2 - start1 >= results.end() - start2)
+				{
+					// Compare repetition
+					bool equal = true;
+					for (auto it1 = start1, it2 = start2; it1 != start2; ++it1, ++it2)
+					{
+						if (*it1 != *it2)
+						{
+							equal = false;
+						}
+					}
+					if (equal)	// found loop: exit loop;
+					{
+						loopStartIndex = start2 - results.begin();
+						loopLength = start2 - start1;
+						std::cout << "start:" << loopStartIndex << " loop:" << loopLength << "\n";
+						break;
+					}
+				}
+			}
+		}
+		results.push_back(result);
+	}
+
+	auto index = (minutes - loopStartIndex) % loopLength + loopStartIndex - 1;
+	return results[index];
 }
 
 int Solve_A()
@@ -86,7 +134,7 @@ int Solve_B()
 {
 	auto	file = aoc2018::OpenInputFile("day18.txt");
 	auto	input = aoc2018::ReadInputLines(*file);
-	return  developAndCountResources(input, 1000000000);
+	return  developAndCountResourcesFindingLoops(input, 1000000000);
 }
 
 }

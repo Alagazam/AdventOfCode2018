@@ -67,3 +67,9 @@ TEST(Day18, Day18_A_1) {
 	auto	input = aoc2018::ReadInputLines(ss);
 	EXPECT_EQ(1147, aoc2018_18::developAndCountResources(input, 10));
 }
+
+TEST(Day18, Day18_B_1) {
+	auto	file = aoc2018::OpenInputFile("day18.txt");
+	auto	input = aoc2018::ReadInputLines(*file);
+	EXPECT_EQ(201335, aoc2018_18::developAndCountResourcesFindingLoops(input, 2000));
+}
