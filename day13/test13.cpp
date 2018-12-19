@@ -63,3 +63,17 @@ TEST(Day13, Day13_A_2) {
 	auto	input = aoc2018::ReadInputLines(ss);
 	EXPECT_EQ("7,3", aoc2018_13::findFirstCrash(input));
 }
+
+TEST(Day13, Day13_B_1) {
+	std::istringstream ss(
+		"/>-<\\   \n"
+		"|   |   \n"
+		"| /<+-\\ \n"
+		"| | | v \n"
+		"\\>+</ | \n"
+		"  |   ^ \n"
+		"  \\<->/ \n"
+	);
+	auto	input = aoc2018::ReadInputLines(ss);
+	EXPECT_EQ("6,4", aoc2018_13::findLastCart(input));
+}

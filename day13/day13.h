@@ -12,6 +12,7 @@ struct cart
 	int dx{ 0 };
 	int dy{ 0 };
 	int turnStep{ 0 };
+	bool	crashed{ false };
 	void move(char trackType)
 	{
 		switch (trackType)
@@ -102,9 +103,9 @@ carts_t	findCarts(aoc2018::inputLines	&input)
 	return carts;
 }
 
-carts_t::const_iterator	hasCrash(const carts_t &carts, const cart &movingCart)
+carts_t::iterator	hasCrash(carts_t &carts, const cart &movingCart)
 {
-	return std::find_if(carts.cbegin(), carts.cend(), [&](const cart& cart) { return cart.crash(movingCart); });
+	return std::find_if(carts.begin(), carts.end(), [&](cart& cart) { return cart.crash(movingCart); });
 }
 
 // Untested, but simple enough it should at least be close to reality...
@@ -169,6 +170,33 @@ std::string	findFirstCrash(aoc2018::inputLines	input)
 	return std::to_string(crashCart1.x) + ',' + std::to_string(crashCart1.y);
 }
 
+std::string	findLastCart(aoc2018::inputLines	input)
+{
+	auto carts = findCarts(input);
+
+	while (carts.size() > 1)
+	{
+		std::sort(carts.begin(), carts.end());
+		for (auto &cart : carts)
+		{
+			if (!cart.crashed)
+			{
+				cart.move(input[cart.y][cart.x]);
+				auto crashCart = hasCrash(carts, cart);
+				if (crashCart != carts.end())
+				{
+					cart.crashed = true;
+					crashCart->crashed = true;
+				}
+			}
+		}
+		auto end = std::remove_if(carts.begin(), carts.end(), [](const cart& cart) { return cart.crashed; });
+		carts.erase(end, carts.end());
+//		print(input, carts);
+	}
+	return std::to_string(carts[0].x) + ',' + std::to_string(carts[0].y);
+}
+
 std::string Solve_A()
 {
 	auto	file = aoc2018::OpenInputFile("day13.txt");
@@ -180,7 +208,7 @@ std::string Solve_B()
 {
 	auto	file = aoc2018::OpenInputFile("day13.txt");
 	auto	input = aoc2018::ReadInputLines(*file);
-	return  findFirstCrash(input);
+	return  findLastCart(input);
 }
 
 }
