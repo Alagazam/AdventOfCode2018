@@ -184,6 +184,7 @@
     <ClInclude Include="..\day11\day11.h" />
     <ClInclude Include="..\day12\day12.h" />
     <ClInclude Include="..\day13\day13.h" />
+    <ClInclude Include="..\day14\day14.h" />
     <ClInclude Include="..\day18\day18.h" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +228,9 @@
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\day13\day13.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\day14\day14.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
