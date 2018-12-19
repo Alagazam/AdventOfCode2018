@@ -24,10 +24,10 @@ std::string	evolve(const std::string &state, const transitions_t &transitions)
 	return result;
 }
 
-int	sumOfPlantPots(const aoc2018::inputContent &input)
+int64_t	sumOfPlantPots(const aoc2018::inputContent &input, int64_t generations = 20)
 {
 	auto state = input[0][2];
-	int	zeroOffset{ 0 };
+	int64_t	zeroOffset{ 0 };
 
 	transitions_t	transitions;
 	for (auto &row : input)
@@ -38,7 +38,10 @@ int	sumOfPlantPots(const aoc2018::inputContent &input)
 		}
 	}
 	
-	for (int i = 0; i != 20; ++i)
+	int64_t prevSum{ 0 };
+	int64_t prevPrevSum{ 0 };
+	int64_t	stablePatternStart{ 0 };
+	for (int64_t i = 0; i != generations; ++i)
 	{
 		state = evolve("...." + state + "....", transitions);
 		if (state[3] == '#' || state[4] == '#')
@@ -58,29 +61,56 @@ int	sumOfPlantPots(const aoc2018::inputContent &input)
 		{
 			state = state.substr(0, state.size() - 4);
 		}
+		int64_t sum{ 0 };
+		for (int j = 0; j != state.size(); ++j)
+		{
+			if (state[j] == '#')
+				sum += j - zeroOffset;
+		}
+
+//		std::cout << i << "  " << sum-prevSum << "  " << state.substr(0,200) << '\n';
+
+		// If we got same differences, we reached a stable pattern
+		if (sum-prevSum == prevSum-prevPrevSum)
+		{
+			stablePatternStart = i;
+			break;
+		}
+			
+		prevPrevSum = prevSum;
+		prevSum = sum;
+
 	}
 
-	int sum{ 0 };
-	for (int i = 0; i != state.size(); ++i)
+	int64_t sum{ 0 };
+	if (stablePatternStart != 0)
 	{
-		if (state[i] == '#')
-			sum += i - zeroOffset;
+		auto diff = prevSum - prevPrevSum;
+		sum = prevSum + diff * (generations - stablePatternStart);
+	}
+	else
+	{
+		for (int i = 0; i != state.size(); ++i)
+		{
+			if (state[i] == '#')
+				sum += i - zeroOffset;
+		}
 	}
 	return sum;
 }
 
-int Solve_A()
+int64_t Solve_A()
 {
 	auto	file = aoc2018::OpenInputFile("day12.txt");
 	auto	input = aoc2018::ReadInput(*file);
 	return  sumOfPlantPots(input);
 }
 
-int Solve_B()
+int64_t Solve_B()
 {
 	auto	file = aoc2018::OpenInputFile("day12.txt");
 	auto	input = aoc2018::ReadInput(*file);
-	return  0;
+	return  sumOfPlantPots(input, 50000000000);
 }
 
 }
