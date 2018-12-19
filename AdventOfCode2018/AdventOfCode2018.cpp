@@ -10,6 +10,7 @@
 #include "../day09/day09.h"
 #include "../day10/day10.h"
 #include "../day11/day11.h"
+#include "../day12/day12.h"
 
 #include "../day18/day18.h"
 
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
 		if (day == 0 || day == 9)	std::cout << "Day 09 A=" << aoc2018_09::Solve_A() << " B=" << aoc2018_09::Solve_B() << "\n";
 		if (day == 0 || day == 10)	std::cout << "Day 10 AB=" << aoc2018_10::Solve_AB() << "\n";
 		if (day == 0 || day == 11)	std::cout << "Day 11 A=" << aoc2018_11::Solve_A() << " B=" << aoc2018_11::Solve_B() << "\n";
+		if (day == 0 || day == 12)	std::cout << "Day 12 A=" << aoc2018_12::Solve_A() << " B=" << aoc2018_12::Solve_B() << "\n";
 
 		if (day == 0 || day == 18)	std::cout << "Day 18 A=" << aoc2018_18::Solve_A() << " B=" << aoc2018_18::Solve_B() << "\n";
 	}
