@@ -22,6 +22,7 @@
     <ClInclude Include="..\day12\day12.h" />
     <ClInclude Include="..\day13\day13.h" />
     <ClInclude Include="..\day14\day14.h" />
+    <ClInclude Include="..\day16\day16.h" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="..\day01\day01.txt" />
@@ -38,6 +39,7 @@
     <CopyFileToFolders Include="..\day18\day18.txt" />
     <CopyFileToFolders Include="..\day12\day12.txt" />
     <CopyFileToFolders Include="..\day13\day13.txt" />
+    <CopyFileToFolders Include="..\day14\day14.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="common">
@@ -45,6 +47,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\day14\day14.txt" />
+    <Text Include="..\day16\day16.txt" />
   </ItemGroup>
 </Project>
